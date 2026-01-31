@@ -66,20 +66,6 @@ git clone https://github.com/jscntw/Telegram-interactive-bot.git .
 
 docker build -t tgibot .
 
-nano compose.yaml
-
-services:
-  bot:
-    build: .
-    image: tgibot:latest
-    container_name: telegram-interactive-bot
-    restart: always
-    volumes:
-      - .:/app
-    working_dir: /app
-    environment:
-      - ENV_FILE_PATH=/app/.env
-
 docker compose up -d
 # --------------------------
 docker compose down
