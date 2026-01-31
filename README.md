@@ -57,7 +57,9 @@ Telegram的开源双向机器人。避免垃圾信息；让被限制的客户可
 
 # ZY（修改.env即可)
 cd /opt/stacks
+
 mkdir -p /opt/stacks/telegram-interactive-bot
+
 cd /opt/stacks/telegram-interactive-bot
 
 git clone https://github.com/jscntw/Telegram-interactive-bot.git .
