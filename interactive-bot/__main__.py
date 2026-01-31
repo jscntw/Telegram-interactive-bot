@@ -127,7 +127,7 @@ async def send_contact_card(
         [
             InlineKeyboardButton(
                 f"{'🏆 高级会员' if user.is_premium else '✈️ 普通会员' }",
-                url=f"https://github.com/MiHaKun/Telegram-interactive-bot",
+                url=f"https://github.com/jscntw/Telegram-interactive-bot",
             )
         ]
     )
