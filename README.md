@@ -50,36 +50,38 @@ Telegram的开源双向机器人。避免垃圾信息；让被限制的客户可
 ### 1. 修改env
 打开`.env_example`，将自己机器人的Token、账号的API_ID/HASH、管理群组ID和管理员ID补全。
 另存`.env_example`为`.env`
-
-### 2. 获取代码/构建python venv
-```
-git clone https://github.com/MiHaKun/Telegram-interactive-bot.git
-cd Telegram-interactive-bot
-python3 -m venv venv
-. venv/bin/activate
-pip install -r requirements.txt
-```
-### 3. 执行
-
-#### 3.1 普通执行
-```
-python -m interactive-bot
-```
-
-**PS:** 正式运营，还是需要类似`PM2`、`supervisor`之类的进程管理工具，配合看门狗来实现不间断运行、自动重启、失效重启等功能。 
-
-#### 3.2 docker 执行
+#### docker 执行
 1. 安装docker ， 参看 [Install Docker under Ubuntu 22.04](https://gist.github.com/dehsilvadeveloper/c3bdf0f4cdcc5c177e2fe9be671820c7)
 2. 执行`docker build -t tgibot .` 生成一个tgibot的镜像
 3. 执行`docker run --restart always --name telegram-interactive-bot  -v "$PWD":/app tgibot:latest` 生成容器并执行。
 
-# ToDoList
-- [x] 准备完善下，docker化
-- [x] 支持消息回复功能。消息间可以相互引用。
-- [x] 完善下数据库。
-- [x] 添加客户的人机识别，防止无聊的人用userbot来刷
-- [x] 添加并识别媒体组消息。
-- [x] 精简点代码，利用**payload来展开forwarding的参数。
+# ZY
+cd /opt/stacks
+mkdir -p /opt/stacks/telegram-interactive-bot
+cd /opt/stacks/telegram-interactive-bot
+# 4. 克隆源码（修改.env即可)
+git clone https://github.com/jscntw/Telegram-interactive-bot.git .
+docker build -t tgibot .
+
+
+nano compose.yaml
+
+services:
+  bot:
+    build: .
+    image: tgibot:latest
+    container_name: telegram-interactive-bot
+    restart: always
+    volumes:
+      - .:/app
+    working_dir: /app
+    environment:
+      - ENV_FILE_PATH=/app/.env
+
+docker compose up -d
+# --------------------------
+docker compose down
+# --------------------------
 
 # 关于
 
