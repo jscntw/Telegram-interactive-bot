@@ -55,7 +55,7 @@ Telegram的开源双向机器人。避免垃圾信息；让被限制的客户可
 2. 执行`docker build -t tgibot .` 生成一个tgibot的镜像
 3. 执行`docker run --restart always --name telegram-interactive-bot  -v "$PWD":/app tgibot:latest` 生成容器并执行。
 
-# ZY（修改.env即可)
+# ZY（修改.env即可)  删除对话要在对应话题用/clear,不能直接删除
 cd /opt/stacks
 
 mkdir -p /opt/stacks/telegram-interactive-bot
