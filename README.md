@@ -55,14 +55,14 @@ Telegram的开源双向机器人。避免垃圾信息；让被限制的客户可
 2. 执行`docker build -t tgibot .` 生成一个tgibot的镜像
 3. 执行`docker run --restart always --name telegram-interactive-bot  -v "$PWD":/app tgibot:latest` 生成容器并执行。
 
-# ZY
+# ZY（修改.env即可)
 cd /opt/stacks
 mkdir -p /opt/stacks/telegram-interactive-bot
 cd /opt/stacks/telegram-interactive-bot
-# 4. 克隆源码（修改.env即可)
-git clone https://github.com/jscntw/Telegram-interactive-bot.git .
-docker build -t tgibot .
 
+git clone https://github.com/jscntw/Telegram-interactive-bot.git .
+
+docker build -t tgibot .
 
 nano compose.yaml
 
